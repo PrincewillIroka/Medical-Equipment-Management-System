@@ -15,6 +15,8 @@
 //     return view('home');
 // });
 
+Route::get('/index.html', 'Controller@index');
+
 Route::get('/', 'Controller@index');
 
 Route::post('/db', 'Controller@getDB');
