@@ -1,0 +1,897 @@
+[
+    {
+        "inventory": [
+            {
+                "name": "Body Fat analyser",
+                "description": "Bio-electrical impedance analysis technique",
+                "use": "For determining internal body composition a fast and accurate procedure",
+                "image": "Body Fat analyser.PNG"
+            },
+            {
+                "name": "Body Logic Pro body fat analyser",
+                "description": "Fat analyser, button key pad with storage personal data files",
+                "use": "",
+                "image": "Body Logic Pro body fat analyser.PNG"
+            },
+            {
+                "name": "Handheld refractometer",
+                "description": "Simple rubber grip and optical focus system with automatic temperature compensation system",
+                "use": "For accurate measurement of specific gravity and protein determination",
+                "image": "Handheld refractometer.PNG"
+            },
+            {
+                "name": "Hemacytometer",
+                "description": "Double rulings and visible through wide range of illumination. Rulings ar 0.1mm below cover glass with fused rodium",
+                "use": "For counting of erythrocytes and leukocytes",
+                "image": "Hemacytometer.PNG"
+            },
+            {
+                "name": "Dynatest Dynamometer",
+                "description": "Conveniently sized dynamometer is very sturdy, with yellow softballs",
+                "use": "For determining the exact muscle strength in hands in rheumatic disorder and after sport injuries",
+                "image": "Dynatest Dynamometer.PNG"
+            },
+            {
+                "name": "Reflex Babinski Persussion Hammer",
+                "description": "Percussion hammer with foot pin, with screw and 10in/8in",
+                "use": "",
+                "image": "Reflex Babinski Persussion Hammer.PNG"
+            },
+            {
+                "name": "Reflex Babinsky Perscussion Hammer",
+                "description": "Babinsky Percussion Hammer with 2 threads, 24cm",
+                "use": "",
+                "image": "Reflex Babinsky Perscussion Hammer.PNG"
+            },
+            {
+                "name": "Reflex Berliner Percussion Hammer",
+                "description": "Berliner Percussion Hammer with 20cm size.",
+                "use": "",
+                "image": "Reflex Berliner Percussion Hammer.PNG"
+            },
+            {
+                "name": "Reflex Buck Neurological Hammer",
+                "description": "Neurological hammer , pocket fit, telescoping 4-1/2in to 7in, chrome",
+                "use": "",
+                "image": "Reflex Buck Neurological Hammer.PNG"
+            },
+            {
+                "name": "Reflex buck with needle and brush",
+                "description": "Buck with needle and brush 18cm",
+                "use": "",
+                "image": "Reflex buck with needle and brush.PNG"
+            },
+            {
+                "name": "Reflex Dejerine Percussion Hammer",
+                "description": "Dejerine Percussion Hammer with/without needle 21 cm/ with foot pin, with screw/ 8- 1/4in",
+                "use": "",
+                "image": "Reflex Dejerine Percussion Hammer.PNG"
+            },
+            {
+                "name": "Reflex Percussion Hammer Foot Grade",
+                "description": "Reflex percussion Hammer foot Grade adult/ infant , stainless steel, 71/2in",
+                "use": "",
+                "image": "Reflex Percussion Hammer Foot Grade.PNG"
+            },
+            {
+                "name": "Reflex Queens Percussion Hammer",
+                "description": "Reflex Queens perussion Hammer with plastic Handles 35 cm/flexible/ adult head 2in,13in, /pediatric head 1-1/2in,9in",
+                "use": "",
+                "image": "Reflex Queens Percussion Hammer.PNG"
+            },
+            {
+                "name": "Reflex Tylor Percussor Hammer",
+                "description": "Stainless steel Taylor percussion hammer , 20cm/ small with 6-1/4”/large, 7-1/2”",
+                "use": "",
+                "image": "Reflex Tylor Percussor Hammer.PNG"
+            },
+            {
+                "name": "Reflex Troemner Percussion Hammer",
+                "description": "Troemner Percussion Hammer , 180g/230g, 25cm/9 3/4”, with large and small rubber tips, hollow tapered handle with sharp point, chrome",
+                "use": "",
+                "image": "Reflex Troemner Percussion Hammer.PNG"
+            },
+            {
+                "name": "Neurological Hammer",
+                "description": "Dual sided hammer head Includes brush and needle",
+                "use": "",
+                "image": "Neurological Hammer.PNG"
+            },
+            {
+                "name": "Aluminum Pinard Foetal Stethoscope",
+                "description": "Pinard foetal stethoscope with good shape of bell particularly for acoustics",
+                "use": "For auscultating the heart sounds of the embryo in the womb",
+                "image": "Aluminum Pinard Foetal Stethoscope.PNG"
+            },
+            {
+                "name": "Duplex Deluxe Baby Stethoscope",
+                "description": "Duplex duluxe baby stethoscope for babies with double ended chest piece , high acoustic performance",
+                "use": "",
+                "image": "Duplex Deluxe Baby Stethoscope.PNG"
+            },
+            {
+                "name": "Duplex Deluxe Neonatal Stethoscope",
+                "description": "Precision finished double headed chest piece",
+                "use": "For newborn babies and infants",
+                "image": "Duplex Deluxe Neonatal Stethoscope.PNG"
+            },
+            {
+                "name": "Fetal Doppler Ultrasound Stethoscope",
+                "description": "Pocket size ultrasound 2.25Mhz doppler",
+                "use": "Provides accurate auscultation of heart,lung and blood pressure tones and ergonomically",
+                "image": "Fetal Doppler Ultrasound Stethoscope.PNG"
+            },
+            {
+                "name": "Deluxe dual head stethoscope",
+                "description": "Durable dual headed alumunium anodized , dull chestpiece, built in non chill ring",
+                "use": "",
+                "image": "Deluxe dual head stethoscope.PNG"
+            },
+            {
+                "name": "Stainless steel Cardiology Type stethoscope",
+                "description": "Stethoscope cardiology, large alumunium chest piece, smooth mirror/grain finish",
+                "use": "",
+                "image": "Stainless steel Cardiology Type.PNG"
+            },
+            {
+                "name": "Pediatric Stethoscope ",
+                "description": "Stethoscope pediatric, brass chrome plated small size chestpiece",
+                "use": "",
+                "image": "Pediatric Stethoscope.PNG"
+            },
+            {
+                "name": "Regular Stethescope",
+                "description": "Stethoscope regular, stainless steel, lightweight alumunium/brass chest piece external non chill ring",
+                "use": "",
+                "image": "Regular Stethescope.PNG"
+            },
+            {
+                "name": "General Blood Flow Doppler Ultrasound Stethoscope",
+                "description": "Compact, hand-held unit operates at the proper frequency (5.3MHz) ",
+                "use": "For detecting blood flow",
+                "image": "General Blood Flow Doppler Ultrasound Stethoscope.PNG"
+            },
+            {
+                "name": "Cardiology Stethoscope",
+                "description": "Premium grade stainless steel, usually 22k/single head , dual head",
+                "use": " Enables accurate auscultation of heart,lung and blood pressure tones ergonomically",
+                "image": "Cardiology Stethoscope.PNG"
+            },
+            {
+                "name": "Bowles Stethoscopes",
+                "description": "Bowles stethoscopes of folding types",
+                "use": "",
+                "image": "Bowles Stethoscopes.PNG"
+            },
+            {
+                "name": "Finger tip pulse oximeter",
+                "description": "Fingler tip pulse oximeter with spot check monitor",
+                "use": "",
+                "image": "Finger tip pulse oximeter.PNG"
+            },
+            {
+                "name": "Hand held pulse oximeter",
+                "description": "Compacted and lightweight hand held pulse oximeter",
+                "use": "For non-invasive spot check measurement of functional oxygen",
+                "image": "Hand held pulse oximeter.PNG"
+            },
+            {
+                "name": "Finger Pulse Oximeter",
+                "description": "Weight usually 2 ounces, 2.5in long running with a battery/pulse-filling Rate is 0.5% Interference Resistance Capacity Deviation is smaller than+/-1%",
+                "use": "For providing instant blood oximeter and pulse reading",
+                "image": "Finger Pulse Oximeter.PNG"
+            },
+            {
+                "name": "Blood Pressure Cuff Infant",
+                "description": "Blood pressure cuff infant , nylon zipper case, adjustable gauge",
+                "use": "",
+                "image": "Blood Pressure Cuff Infant.PNG"
+            },
+            {
+                "name": "Aneroid Blood Pressure Cuff",
+                "description": "Aneroid blood pressure cuff with manually adjusted gauge. Large adult size/child size ",
+                "use": "",
+                "image": "Aneroid Blood Pressure Cuff.PNG"
+            },
+            {
+                "name": "Aneroid Blood Pressure Combo Kit",
+                "description": "Kit with Nylon case and nurse pocket organizer filled, spraure 22”, stethoscope latex free, tape measure ",
+                "use": "",
+                "image": "Aneroid Blood Pressure Combo Kit.PNG"
+            },
+            {
+                "name": "Hershman Anal Scope",
+                "description": "Hershman Anal Scope of size 5 inches",
+                "use": "",
+                "image": "Hershman Anal Scope.PNG"
+            },
+            {
+                "name": "Kelly Anoscope",
+                "description": "Kelly Anoscope 8” overall length, 6” insertalbe prong and 3/4” in diameter stainless",
+                "use": "",
+                "image": "Kelly Anoscope.PNG"
+            },
+            {
+                "name": "ECG Caliper",
+                "description": "Chrome plated up to 7” radius, length: 3 7/8”",
+                "use": "For measuring ECG wavelength ",
+                "image": "ECG Caliper.PNG"
+            },
+            {
+                "name": "Ultrasonic Nubulizers",
+                "description": "Durable, stretchable double tubes , ultrasonic frequency of 1.7MHz +-10%, neubulizing rate 4ml/min",
+                "use": "",
+                "image": "Ultrasonic Nubulizers.PNG"
+            },
+            {
+                "name": "Air Compressing Nubulizers",
+                "description": "Free air flux compressing pump 10L/min, maximum nebulizing rate 0.1ml/min with noise 60 dba",
+                "use": "",
+                "image": "Air Compressing Nubulizers.PNG"
+            },
+            {
+                "name": "Otoscope set",
+                "description": "Otoscope(auroscope) set, heins type, brass chrome plated battery handle, lens cap, and three speculae",
+                "use": "",
+                "image": "Otoscope set.PNG"
+            },
+            {
+                "name": "ENT set",
+                "description": "Consisting of Otoscope, with 3 speculae, nasal speculum, bent arm illuminator, tongue depressor, laryngeal mirror, and battery",
+                "use": "",
+                "image": "ENT set.PNG"
+            },
+            {
+                "name": "Diagnostic set",
+                "description": "Diagnostic set complete with othoscope ophthalmoscope, nasal speculu, bent arm illuminator, tongue depressor, laryngeal mirror",
+                "use": "",
+                "image": "Diagnostic set.PNG"
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            },
+            {
+                "name": "",
+                "description": "",
+                "use": "",
+                "image": ""
+            }
+        ]
+    },
+    {
+        "users": {}
+    }
+]
