@@ -3,7 +3,7 @@
     <div class="side-nav">
       <div class="logo-section">
         <i class="fas fa-plus-square"></i>
-        <span>Medical Equipment System</span>
+        <span>Medical Equipment Syste</span>
       </div>
       <div>
         <div
