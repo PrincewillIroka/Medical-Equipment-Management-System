@@ -2023,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       toggleDepartmentsStatus: true,
-      activeTab: "BiomedicalEngineering",
+      activeTab: "Inventory",
       token: document.querySelector("meta[name='csrf-token']").getAttribute("content"),
       allData: [],
       inventoryData: [],
