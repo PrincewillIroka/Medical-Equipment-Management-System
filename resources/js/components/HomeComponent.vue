@@ -12,7 +12,7 @@
           :class="{active_nav_item : activeTab == 'Inventory'}"
         >
           <i class="fas fa-home"></i>
-          <span>Inventory</span>
+          <span>Inventorygfdddd</span>
         </div>
         <div @click="toggleDepartments()">
           <i class="fas fa-address-card"></i>
