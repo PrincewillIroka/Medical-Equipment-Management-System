@@ -111,7 +111,7 @@ export default {
   data() {
     return {
       toggleDepartmentsStatus: true,
-      activeTab: "BiomedicalEngineering",
+      activeTab: "Inventory",
       token: document
         .querySelector("meta[name='csrf-token']")
         .getAttribute("content"),
