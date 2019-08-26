@@ -38923,7 +38923,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-home" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Inventory")])
+            _c("span", [_vm._v("Inventorygfdddd")])
           ]
         ),
         _vm._v(" "),
@@ -39103,7 +39103,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "logo-section" }, [
       _c("i", { staticClass: "fas fa-plus-square" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Medical Equipment System")])
+      _c("span", [_vm._v("Medical Equipment Systemsggg")])
     ])
   }
 ]
