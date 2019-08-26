@@ -3,7 +3,7 @@
     <div class="side-nav">
       <div class="logo-section">
         <i class="fas fa-plus-square"></i>
-        <span>Medical Equipment Systemsggg</span>
+        <span>Medical Equipment Systems</span>
       </div>
       <div>
         <div
@@ -12,7 +12,7 @@
           :class="{active_nav_item : activeTab == 'Inventory'}"
         >
           <i class="fas fa-home"></i>
-          <span>Inventorygfdddd</span>
+          <span>Inventory</span>
         </div>
         <div @click="toggleDepartments()">
           <i class="fas fa-address-card"></i>
