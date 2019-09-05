@@ -86,7 +86,8 @@
       <!-- </div> -->
     </div>
   </div>
-</template><script>
+</template>
+<script>
 import SpinnerLayout from "./SpinnerLayout";
 import Inventory from "./Inventory";
 import BiomedicalEngineering from "./BiomedicalEngineering";
@@ -111,7 +112,7 @@ export default {
   data() {
     return {
       toggleDepartmentsStatus: true,
-      activeTab: "Inventory",
+      activeTab: "Laboratory",
       token: document
         .querySelector("meta[name='csrf-token']")
         .getAttribute("content"),

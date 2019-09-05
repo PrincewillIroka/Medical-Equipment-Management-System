@@ -6,12 +6,18 @@
         <i class="fas fa-angle-right"></i>
       </span>
       <span>Laboratory</span>
-      <div>Make a Request</div>
+      <a href="#modal-one">Make a Request</a>
     </div>
     <div>
       <div>
         <div>About</div>
-        <div>A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis, treatment, and prevention of disease.</div>
+        <div>
+          <div>
+            A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,
+            treatment,
+            and prevention of disease.
+          </div>
+        </div>
       </div>
       <div>
         <div>Equipments found here:</div>
@@ -51,14 +57,28 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="modal-one" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2>Create New Request</h2>
+          <a href="#" class="btn-close" aria-hidden="true">×</a>
+        </div>
+        <div class="modal-body">
+          <textarea placeholder="Type your request or complaint here" id="modal-complaint-field"></textarea>
+          <div class="modal-number">
+            <span>No. of Equipments needed:</span>
+            <input type="number" id="modal-number-field" value="0" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="modal-send-request">Send Request</span>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
-
-<script>
+</template><script>
 export default {};
-</script>
-
-<style lang="scss" scoped>
+</script><style lang="scss"scoped>
 $general-color: #3089f1;
 
 .special-background {
@@ -82,6 +102,7 @@ $general-color: #3089f1;
 
 .container {
   overflow: hidden;
+
   > div:nth-child(1) {
     display: flex;
     align-items: center;
@@ -99,7 +120,7 @@ $general-color: #3089f1;
       margin-right: 15px;
     }
 
-    > div {
+    > a {
       margin-left: auto;
       color: #fff;
       border-radius: 20px;
@@ -227,5 +248,3 @@ $general-color: #3089f1;
   }
 }
 </style>
-
-

@@ -2001,6 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2023,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       toggleDepartmentsStatus: true,
-      activeTab: "Inventory",
+      activeTab: "Laboratory",
       token: document.querySelector("meta[name='csrf-token']").getAttribute("content"),
       allData: [],
       inventoryData: [],
@@ -2189,6 +2190,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7007,7 +7030,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".special-background[data-v-77db0ade], .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(3), .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2), .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1) {\n  background-color: #fff;\n  border-radius: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  box-shadow: 0 0 3px 0 #f0f0f0;\n}\n.popular-font[data-v-77db0ade] {\n  font-family: \"Roboto\", sans-serif;\n}\n.header-background[data-v-77db0ade], .container > div:nth-child(2) > div:nth-child(3) > div[data-v-77db0ade]:nth-child(1), .container > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1), .container > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(1) {\n  font-weight: bold;\n  border-bottom: 1px solid #eee;\n  padding: 10px 0 5px 10px;\n  font-size: 15px;\n  opacity: 0.6;\n}\n.container[data-v-77db0ade] {\n  overflow: hidden;\n}\n.container > div[data-v-77db0ade]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  margin-bottom: 40px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n.container > div:nth-child(1) > span[data-v-77db0ade] {\n  font-size: 17px;\n  font-weight: bold;\n  color: rgba(51, 51, 51, 0.9);\n}\n.container > div:nth-child(1) > span[data-v-77db0ade]:nth-child(1),\n.container > div:nth-child(1) > span[data-v-77db0ade]:nth-child(2) {\n  margin-right: 15px;\n}\n.container > div:nth-child(1) > div[data-v-77db0ade] {\n  margin-left: auto;\n  color: #fff;\n  border-radius: 20px;\n  padding: 7px 15px;\n  background-color: #3089f1;\n  font-size: 14px;\n  box-shadow: 0 0 3px 0 #f0f0f0;\n  cursor: default;\n}\n.container > div[data-v-77db0ade]:nth-child(2) {\n  height: 485px;\n  overflow-y: hidden;\n}\n.container > div[data-v-77db0ade]:nth-child(2):hover {\n  overflow-y: auto;\n}\n.container > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(2) {\n  padding: 10px;\n  line-height: 20pt;\n  word-spacing: 2px;\n}\n.container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2) {\n  margin-top: 30px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2) {\n  padding: 15px 10px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade] {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));\n  grid-column-gap: 10px;\n  grid-row-gap: 15px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > span[data-v-77db0ade] {\n  padding: 5px;\n  border-radius: 3px;\n  font-size: 14px;\n}\n.container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(3) {\n  margin-top: 30px;\n  margin-bottom: 20px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout[data-v-77db0ade] {\n  padding: 15px 10px 0;\n  font-size: 14px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div[data-v-77db0ade]:nth-child(1) {\n  display: grid;\n  grid-template-columns: 70% 30%;\n  font-weight: bold;\n  opacity: 0.9;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade] {\n  padding: 10px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade]:nth-child(odd) {\n  border-right: 1px solid transparent;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade]:nth-child(even) {\n  text-align: center;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div[data-v-77db0ade]:nth-child(2) {\n  padding-bottom: 15px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1) {\n  display: grid;\n  grid-template-columns: 70% 30%;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade] {\n  padding: 10px;\n  border-top: none;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(odd) {\n  border-right: 1px solid transparent;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(even) {\n  text-align: center;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .no_request_layout[data-v-77db0ade] {\n  display: none;\n}", ""]);
+exports.push([module.i, ".special-background[data-v-77db0ade], .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(3), .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2), .container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1) {\n  background-color: #fff;\n  border-radius: 3px;\n  font-family: Arial, Helvetica, sans-serif;\n  box-shadow: 0 0 3px 0 #f0f0f0;\n}\n.popular-font[data-v-77db0ade] {\n  font-family: \"Roboto\", sans-serif;\n}\n.header-background[data-v-77db0ade], .container > div:nth-child(2) > div:nth-child(3) > div[data-v-77db0ade]:nth-child(1), .container > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1), .container > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(1) {\n  font-weight: bold;\n  border-bottom: 1px solid #eee;\n  padding: 10px 0 5px 10px;\n  font-size: 15px;\n  opacity: 0.6;\n}\n.container[data-v-77db0ade] {\n  overflow: hidden;\n}\n.container > div[data-v-77db0ade]:nth-child(1) {\n  display: flex;\n  align-items: center;\n  margin-bottom: 40px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n.container > div:nth-child(1) > span[data-v-77db0ade] {\n  font-size: 17px;\n  font-weight: bold;\n  color: rgba(51, 51, 51, 0.9);\n}\n.container > div:nth-child(1) > span[data-v-77db0ade]:nth-child(1),\n.container > div:nth-child(1) > span[data-v-77db0ade]:nth-child(2) {\n  margin-right: 15px;\n}\n.container > div:nth-child(1) > a[data-v-77db0ade] {\n  margin-left: auto;\n  color: #fff;\n  border-radius: 20px;\n  padding: 7px 15px;\n  background-color: #3089f1;\n  font-size: 14px;\n  box-shadow: 0 0 3px 0 #f0f0f0;\n  cursor: default;\n}\n.container > div[data-v-77db0ade]:nth-child(2) {\n  height: 485px;\n  overflow-y: hidden;\n}\n.container > div[data-v-77db0ade]:nth-child(2):hover {\n  overflow-y: auto;\n}\n.container > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(2) {\n  padding: 10px;\n  line-height: 20pt;\n  word-spacing: 2px;\n}\n.container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2) {\n  margin-top: 30px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade]:nth-child(2) {\n  padding: 15px 10px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div[data-v-77db0ade] {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));\n  grid-column-gap: 10px;\n  grid-row-gap: 15px;\n}\n.container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > span[data-v-77db0ade] {\n  padding: 5px;\n  border-radius: 3px;\n  font-size: 14px;\n}\n.container > div:nth-child(2) > div[data-v-77db0ade]:nth-child(3) {\n  margin-top: 30px;\n  margin-bottom: 20px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout[data-v-77db0ade] {\n  padding: 15px 10px 0;\n  font-size: 14px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div[data-v-77db0ade]:nth-child(1) {\n  display: grid;\n  grid-template-columns: 70% 30%;\n  font-weight: bold;\n  opacity: 0.9;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade] {\n  padding: 10px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade]:nth-child(odd) {\n  border-right: 1px solid transparent;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(1) > div[data-v-77db0ade]:nth-child(even) {\n  text-align: center;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div[data-v-77db0ade]:nth-child(2) {\n  padding-bottom: 15px;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div[data-v-77db0ade]:nth-child(1) {\n  display: grid;\n  grid-template-columns: 70% 30%;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade] {\n  padding: 10px;\n  border-top: none;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(odd) {\n  border-right: 1px solid transparent;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .ongoing_requests_layout > div:nth-child(2) > div:nth-child(1) > div[data-v-77db0ade]:nth-child(even) {\n  text-align: center;\n}\n.container > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) .no_request_layout[data-v-77db0ade] {\n  display: none;\n}", ""]);
 
 // exports
 
@@ -39322,7 +39345,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("span", [_vm._v("Laboratory")]),
         _vm._v(" "),
-        _c("div", [_vm._v("Make a Request")])
+        _c("a", { attrs: { href: "#modal-one" } }, [_vm._v("Make a Request")])
       ]),
       _vm._v(" "),
       _c("div", [
@@ -39330,9 +39353,11 @@ var staticRenderFns = [
           _c("div", [_vm._v("About")]),
           _vm._v(" "),
           _c("div", [
-            _vm._v(
-              "A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis, treatment, and prevention of disease."
-            )
+            _c("div", [
+              _vm._v(
+                "\n          A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,\n          treatment,\n          and prevention of disease.\n        "
+              )
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -39405,7 +39430,58 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal",
+          attrs: { id: "modal-one", "aria-hidden": "true" }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c("h2", [_vm._v("Create New Request")]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn-close",
+                  attrs: { href: "#", "aria-hidden": "true" }
+                },
+                [_vm._v("×")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("textarea", {
+                attrs: {
+                  placeholder: "Type your request or complaint here",
+                  id: "modal-complaint-field"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-number" }, [
+                _c("span", [_vm._v("No. of Equipments needed:")]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "number",
+                    id: "modal-number-field",
+                    value: "0"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c("span", { staticClass: "modal-send-request" }, [
+                _vm._v("Send Request")
+              ])
+            ])
+          ])
+        ]
+      )
     ])
   }
 ]
