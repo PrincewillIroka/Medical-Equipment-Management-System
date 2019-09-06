@@ -12,10 +12,13 @@
       <div>
         <div>About</div>
         <div>
-          <div>
-            A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,
-            treatment,
-            and prevention of disease.
+          <div class="img_wrapper">
+            <img class="img" src="../../../public/images/Laboratory.jpg" />
+            <span>
+              A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,
+              treatment,
+              and prevention of disease.
+            </span>
           </div>
         </div>
       </div>
@@ -85,7 +88,7 @@ $general-color: #3089f1;
   background-color: #fff;
   border-radius: 3px;
   font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 0 3px 0 rgb(240, 240, 240);
+  box-shadow: 0 0 5px 0 rgb(240, 240, 240);
 }
 
 .popular-font {
@@ -151,6 +154,20 @@ $general-color: #3089f1;
         padding: 10px;
         line-height: 20pt;
         word-spacing: 2px;
+      }
+
+      .img_wrapper {
+        display: flex;
+
+        > img {
+          max-width: 288px;
+          max-height: 177px;
+        }
+
+        > span {
+          align-self: flex-end;
+          margin-left: 10px;
+        }
       }
     }
 

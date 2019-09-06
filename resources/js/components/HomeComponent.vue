@@ -98,6 +98,7 @@ import Radiology from "./Radiology";
 import Theatre from "./Theatre";
 
 export default {
+  name: "Home",
   components: {
     SpinnerLayout,
     Inventory,
@@ -108,7 +109,6 @@ export default {
     Laboratory,
     Radiology
   },
-
   data() {
     return {
       toggleDepartmentsStatus: true,
