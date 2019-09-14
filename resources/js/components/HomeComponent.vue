@@ -81,9 +81,7 @@
       <div v-if="!hasLoadedInventory" class="loader-layout">
         <SpinnerLayout />
       </div>
-      <!-- <div v-else-if="inventoryData.length>0"> -->
       <component :inventoryData="inventoryData" :is="activeTab"></component>
-      <!-- </div> -->
     </div>
   </div>
 </template>

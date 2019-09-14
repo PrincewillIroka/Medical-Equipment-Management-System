@@ -1,3 +1,4 @@
+import { mapMutations } from 'vuex'
 import SpinnerLayout from '../components/SpinnerLayout'
 import Inventory from '../components/Inventory'
 import BiomedicalEngineering from '../components/BiomedicalEngineering'
@@ -21,7 +22,6 @@ export default {
     data() {
         return {
             toggleDepartmentsStatus: true,
-            activeTab: 'Laboratory',
             token: document
                 .querySelector("meta[name='csrf-token']")
                 .getAttribute('content'),
@@ -31,7 +31,11 @@ export default {
         }
     },
 
-    computed: {},
+    computed: {
+        activeTab: function() {
+            return this.$store.getters.getActiveTab
+        }
+    },
 
     beforeMount() {},
 
@@ -42,12 +46,13 @@ export default {
     mounted() {},
 
     methods: {
+        ...mapMutations(['toogleActiveTab']),
         toggleDepartments() {
             this.toggleDepartmentsStatus = !this.toggleDepartmentsStatus
         },
 
         changeTab(tab) {
-            this.activeTab = tab
+            this.toogleActiveTab(tab)
         },
 
         fetchInventory() {

@@ -1,7 +1,7 @@
 <template>
   <div @scroll="inventoryIsScrolled($event)" class="inventory">
     <template v-for="(iData, index) in inventoryData">
-      <div>
+      <div @click="toggleViewMoreInfoModal(iData)">
         <div>
           <img :src="'/images/'+iData.image" :alt="iData.name" />
         </div>
@@ -9,15 +9,34 @@
         <div>{{iData.description}}</div>
       </div>
     </template>
+    <ViewMoreInfo
+      :dataForViewMoreInfoModal="dataForViewMoreInfoModal"
+      v-if="viewMoreInfoModalIsOpen"
+      v-on:closeModal="toggleViewMoreInfoModal({})"
+    />
   </div>
 </template>
 
 <script>
+import ViewMoreInfo from "./ViewMoreInfoModal";
 export default {
+  components: {
+    ViewMoreInfo
+  },
+  data() {
+    return {
+      viewMoreInfoModalIsOpen: false,
+      dataForViewMoreInfoModal: {}
+    };
+  },
   props: ["inventoryData"],
   methods: {
     inventoryIsScrolled(event) {
-      console.log(event.target);
+      // console.log(event.target);
+    },
+    toggleViewMoreInfoModal(data) {
+      this.dataForViewMoreInfoModal = data;
+      this.viewMoreInfoModalIsOpen = !this.viewMoreInfoModalIsOpen;
     }
   }
 };
@@ -40,6 +59,12 @@ export default {
     padding: 20px 10px 0;
     align-items: center;
     text-align: center;
+    cursor: default;
+
+    &:hover {
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05),
+        0 10px 20px 0 rgba(72, 22, 66, 0.05);
+    }
 
     > div:nth-child(1) {
       > img {
