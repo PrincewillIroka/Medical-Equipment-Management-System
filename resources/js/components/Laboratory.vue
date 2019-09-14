@@ -5,7 +5,7 @@
       <span>
         <i class="fas fa-angle-right"></i>
       </span>
-      <span>Laboratory</span>
+      <span>Laboratory Dept.</span>
       <a @click="toggleMakeARequestModalVisibility">Make a Request</a>
     </div>
     <div>
