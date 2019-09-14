@@ -6,7 +6,8 @@
           <img :src="'/images/'+iData.image" :alt="iData.name" />
         </div>
         <div>{{iData.name}}</div>
-        <div>{{iData.description}}</div>
+        <!-- <div>{{iData.description}}</div> -->
+        <span>View Details</span>
       </div>
     </template>
     <ViewMoreInfo
@@ -80,13 +81,23 @@ export default {
       font-size: 15px;
       margin: 20px 0;
       font-family: "Lato", sans-serif;
-      color: #3089f1;
+      height: 40px;
+      max-height: 40px;
     }
 
-    > div:nth-child(3) {
+    // > div:nth-child(3) {
+    //   font-size: 13px;
+    //   font-family: Arial, Helvetica, sans-serif;
+    //   opacity: 0.8;
+    // }
+
+    > span:nth-child(3) {
+      background-color: #3089f1;
+      color: #fff;
       font-size: 13px;
       font-family: Arial, Helvetica, sans-serif;
-      opacity: 0.8;
+      padding: 7px 15px;
+      border-radius: 3px;
     }
   }
 }
