@@ -11,7 +11,12 @@
     <div>
       <div>
         <div>About</div>
-        <div>New medical equipments are first inspected here, before taken to their various units. It's a place where compliants are laid about a faulty medical equipments or replacement of instruments.</div>
+        <div>
+          <div class="img_wrapper">
+            <img class="img" src="../../../public/images/about_images/biomedical_engineering.png" />
+            <span>New medical equipments are first inspected here, before taken to their various units. It's a place where compliants are laid about a faulty medical equipments or replacement of instruments.</span>
+          </div>
+        </div>
       </div>
       <div>
         <div>Ongoing Requests</div>
@@ -127,6 +132,20 @@ $general-color: #3089f1;
         padding: 10px;
         line-height: 20pt;
         word-spacing: 2px;
+      }
+
+      .img_wrapper {
+        display: flex;
+
+        > img {
+          max-width: 288px;
+          max-height: 177px;
+        }
+
+        > span {
+          align-self: flex-end;
+          margin-left: 10px;
+        }
       }
     }
 

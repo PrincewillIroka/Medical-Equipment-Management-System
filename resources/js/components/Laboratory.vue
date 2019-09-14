@@ -6,14 +6,14 @@
         <i class="fas fa-angle-right"></i>
       </span>
       <span>Laboratory</span>
-      <a href="#modal-one">Make a Request</a>
+      <a @click="toggleMakeARequestModalVisibility">Make a Request</a>
     </div>
     <div>
       <div>
         <div>About</div>
         <div>
           <div class="img_wrapper">
-            <img class="img" src="../../../public/images/Laboratory.jpg" />
+            <img class="img" src="../../../public/images/about_images/Laboratory.jpeg" />
             <span>
               A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,
               treatment,
@@ -60,28 +60,32 @@
         </div>
       </div>
     </div>
-    <div class="modal" id="modal-one" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-header">
-          <h2>Create New Request</h2>
-          <a href="#" class="btn-close" aria-hidden="true">×</a>
-        </div>
-        <div class="modal-body">
-          <textarea placeholder="Type your request or complaint here" id="modal-complaint-field"></textarea>
-          <div class="modal-number">
-            <span>No. of Equipments needed:</span>
-            <input type="number" id="modal-number-field" value="0" />
-          </div>
-        </div>
-        <div class="modal-footer">
-          <span class="modal-send-request">Send Request</span>
-        </div>
-      </div>
-    </div>
+    <MakeARequestModal
+      v-if="toggleMakeARequestModal"
+      v-on:closeModal="toggleMakeARequestModalVisibility"
+    />
   </div>
-</template><script>
-export default {};
-</script><style lang="scss"scoped>
+</template>
+<script>
+import MakeARequestModal from "./MakeARequestModal";
+export default {
+  name: "Laboratory",
+  components: {
+    MakeARequestModal
+  },
+  data() {
+    return {
+      toggleMakeARequestModal: false
+    };
+  },
+  methods: {
+    toggleMakeARequestModalVisibility() {
+      this.toggleMakeARequestModal = !this.toggleMakeARequestModal;
+    }
+  }
+};
+</script>
+<style lang="scss">
 $general-color: #3089f1;
 
 .special-background {

@@ -6,12 +6,17 @@
         <i class="fas fa-angle-right"></i>
       </span>
       <span>Pathology</span>
-      <div>Make a Request</div>
+      <a @click="toggleMakeARequestModalVisibility">Make a Request</a>
     </div>
     <div>
       <div>
         <div>About</div>
-        <div>Pathology involves the study and diagnosis of disease through the examination of surgically removed organs, tissues (biopsy samples), bodily fluids, and in some cases the whole body (autopsy).</div>
+        <div>
+          <div class="img_wrapper">
+            <img class="img" src="../../../public/images/about_images/Pathology.jpeg" />
+            <span>Pathology involves the study and diagnosis of disease through the examination of surgically removed organs, tissues (biopsy samples), bodily fluids, and in some cases the whole body (autopsy).</span>
+          </div>
+        </div>
       </div>
       <div>
         <div>Equipments found here:</div>
@@ -49,11 +54,31 @@
         </div>
       </div>
     </div>
+    <MakeARequestModal
+      v-if="toggleMakeARequestModal"
+      v-on:closeModal="toggleMakeARequestModalVisibility"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+import MakeARequestModal from "./MakeARequestModal";
+export default {
+  name: "Pathology",
+  components: {
+    MakeARequestModal
+  },
+  data() {
+    return {
+      toggleMakeARequestModal: false
+    };
+  },
+  methods: {
+    toggleMakeARequestModalVisibility() {
+      this.toggleMakeARequestModal = !this.toggleMakeARequestModal;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -127,6 +152,20 @@ $general-color: #3089f1;
         padding: 10px;
         line-height: 20pt;
         word-spacing: 2px;
+      }
+
+      .img_wrapper {
+        display: flex;
+
+        > img {
+          max-width: 288px;
+          max-height: 177px;
+        }
+
+        > span {
+          align-self: flex-end;
+          margin-left: 10px;
+        }
       }
     }
 

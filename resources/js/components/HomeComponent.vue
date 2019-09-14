@@ -88,86 +88,11 @@
   </div>
 </template>
 <script>
-import SpinnerLayout from "./SpinnerLayout";
-import Inventory from "./Inventory";
-import BiomedicalEngineering from "./BiomedicalEngineering";
-import ICU from "./ICU";
-import Laboratory from "./Laboratory";
-import Pathology from "./Pathology";
-import Radiology from "./Radiology";
-import Theatre from "./Theatre";
+import homeMixin from "../mixins/homeMixin";
 
 export default {
   name: "Home",
-  components: {
-    SpinnerLayout,
-    Inventory,
-    BiomedicalEngineering,
-    ICU,
-    Pathology,
-    Theatre,
-    Laboratory,
-    Radiology
-  },
-  data() {
-    return {
-      toggleDepartmentsStatus: true,
-      activeTab: "Laboratory",
-      token: document
-        .querySelector("meta[name='csrf-token']")
-        .getAttribute("content"),
-      allData: [],
-      inventoryData: [],
-      hasLoadedInventory: false
-    };
-  },
-
-  computed: {},
-
-  beforeMount() {},
-
-  created() {
-    this.fetchInventory();
-  },
-
-  mounted() {},
-
-  methods: {
-    toggleDepartments() {
-      this.toggleDepartmentsStatus = !this.toggleDepartmentsStatus;
-    },
-
-    changeTab(tab) {
-      this.activeTab = tab;
-    },
-
-    fetchInventory() {
-      fetch("db", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text-plain, */*",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-TOKEN": this.token
-        },
-
-        method: "post",
-        body: JSON.stringify({
-          query_id: "mKrTyR2e456"
-        })
-      })
-        .then(response => response.json())
-        .then(data => this.setInventoryData(data))
-        .catch(err => {
-          console.error("Warning:", err);
-        });
-    },
-
-    setInventoryData(data) {
-      this.allData = data;
-      this.inventoryData = this.allData[0].inventory;
-      this.hasLoadedInventory = true;
-    }
-  }
+  mixins: [homeMixin]
 };
 </script>
 <style lang="scss" scoped>

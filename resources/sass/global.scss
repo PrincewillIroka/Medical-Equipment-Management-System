@@ -20,6 +20,7 @@ a {
   position: absolute;
   right: 15px;
   top: 10px;
+  cursor: default;
 }
 
 .btn-close:hover {
@@ -32,7 +33,7 @@ a {
 
 .modal:before {
   content: "";
-  display: none;
+  display: block;
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -42,30 +43,29 @@ a {
   z-index: 10;
 }
 
-.modal:target:before {
-  display: block;
-}
+// .modal:target:before {
+//   display: block;
+// }
 
-.modal:target .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-  top: 20%;
-}
+// .modal:target .modal-dialog {
+//   -webkit-transform: translate(0, 0);
+//   -ms-transform: translate(0, 0);
+//   transform: translate(0, 0);
+//   top: 20%;
+// }
 
 .modal-dialog {
   background: #fefefe;
-  border: #333 solid 1px;
   border-radius: 5px;
   margin-left: -200px;
   position: fixed;
   left: 50%;
-  top: -100%;
   z-index: 11;
   width: 560px;
-  -webkit-transform: translate(0, -500%);
-  -ms-transform: translate(0, -500%);
-  transform: translate(0, -500%);
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 20%;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   -moz-transition: -moz-transform 0.3s ease-out;
   -o-transition: -o-transform 0.3s ease-out;

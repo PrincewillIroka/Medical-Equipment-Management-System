@@ -6,12 +6,17 @@
         <i class="fas fa-angle-right"></i>
       </span>
       <span>Intensive Care Unit (ICU)</span>
-      <div>Make a Request</div>
+      <a @click="toggleMakeARequestModalVisibility">Make a Request</a>
     </div>
     <div>
       <div>
         <div>About</div>
-        <div>Intensive care units cater to patients with severe or life-threatening illnesses and injuries, which require constant care, close supervision from life support equipment and medication in order to ensure normal bodily functions.</div>
+        <div>
+          <div class="img_wrapper">
+            <img class="img" src="../../../public/images/about_images/Intensive_care_unit.jpeg" />
+            <span>Intensive care units cater to patients with severe or life-threatening illnesses and injuries, which require constant care, close supervision from life support equipment and medication in order to ensure normal bodily functions.</span>
+          </div>
+        </div>
       </div>
       <div>
         <div>Equipments found here:</div>
@@ -53,11 +58,31 @@
         </div>
       </div>
     </div>
+    <MakeARequestModal
+      v-if="toggleMakeARequestModal"
+      v-on:closeModal="toggleMakeARequestModalVisibility"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+import MakeARequestModal from "./MakeARequestModal";
+export default {
+  name: "ICU",
+  components: {
+    MakeARequestModal
+  },
+  data() {
+    return {
+      toggleMakeARequestModal: false
+    };
+  },
+  methods: {
+    toggleMakeARequestModalVisibility() {
+      this.toggleMakeARequestModal = !this.toggleMakeARequestModal;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -131,6 +156,20 @@ $general-color: #3089f1;
         padding: 10px;
         line-height: 20pt;
         word-spacing: 2px;
+      }
+
+      .img_wrapper {
+        display: flex;
+
+        > img {
+          max-width: 288px;
+          max-height: 177px;
+        }
+
+        > span {
+          align-self: flex-end;
+          margin-left: 10px;
+        }
       }
     }
 
