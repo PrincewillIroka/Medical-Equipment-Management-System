@@ -13,7 +13,7 @@
         <div>About</div>
         <div>
           <div class="img_wrapper">
-            <!-- <img class="img" src="../../../public/images/about_images/Laboratory.jpeg" /> -->
+            <img class="img" src="../../../public/images/about_images/Laboratory.jpeg" />
             <span>
               A medical laboratory is a laboratory where pathology tests are carried out on clinical specimens to obtain information about the health of a patient to aid in diagnosis,
               treatment,
