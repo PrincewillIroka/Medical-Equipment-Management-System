@@ -160,6 +160,8 @@ $general-color: #3089f1;
       > div:nth-child(2) {
         padding: 15px 5px;
         .list_of_complaints {
+          display: flex;
+          flex-direction: column;
           text-align: center;
           > div:nth-child(1) {
             display: grid;
