@@ -39,4 +39,8 @@ class Controller extends BaseController
         }
         
     }
+
+    public function sendRequest(Request $request){
+        
+    }
 }

@@ -6,7 +6,6 @@
           <img :src="'/images/'+iData.image" :alt="iData.name" />
         </div>
         <div>{{iData.name}}</div>
-        <!-- <div>{{iData.description}}</div> -->
         <span>View Details</span>
       </div>
     </template>

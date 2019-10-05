@@ -21,5 +21,7 @@ Route::get('/', 'Controller@index');
 
 Route::post('/db', 'Controller@getDB');
 
+Route::post('/sendRequest', 'Controller@sendRequest');
+
 Route::any('{all}', function () {
     return view('home');})->where(['all' => '.*']);

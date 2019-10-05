@@ -2,14 +2,12 @@
   <div class="login">
     <div class="cont">
       <div class="form sign-in">
-        <h2>Welcome back,</h2>
+        <h2 class="headerText">Welcome back,</h2>
         <label>
-          <span>Email</span>
-          <input type="email" />
+          <input type="email" placeholder="Email" class="formInputField" />
         </label>
         <label>
-          <span>Password</span>
-          <input type="password" />
+          <input type="password" placeholder="Password" class="formInputField" />
         </label>
         <p class="forgot-pass">Forgot password?</p>
         <button type="button" class="submit">Sign In</button>
@@ -22,30 +20,35 @@
         <div class="img">
           <div class="img__text m--up">
             <h2>New here?</h2>
-            <p>Sign up and discover great amount of new opportunities!</p>
+            <p class="advertText">Sign up to utilize the Medical Equipment Management System</p>
           </div>
           <div class="img__text m--in">
             <h2>One of us?</h2>
-            <p>If you already have an account, just sign in. We've missed you!</p>
+            <p class="advertText">If you already have an account, just sign in. We've missed you!</p>
           </div>
           <div class="img__btn">
-            <span class="m--up">Sign Up</span>
-            <span class="m--in">Sign In</span>
+            <span class="m--up mpn">Sign Up</span>
+            <span class="m--in mpn">Sign In</span>
           </div>
         </div>
         <div class="form sign-up">
-          <h2>Time to feel like home,</h2>
+          <h2 class="headerText">Time to feel like home,</h2>
           <label>
-            <span>Name</span>
-            <input type="text" />
+            <input type="email" class="formInputField" placeholder="Email" />
           </label>
           <label>
-            <span>Email</span>
-            <input type="email" />
+            <input type="password" class="formInputField" placeholder="Password" />
           </label>
           <label>
-            <span>Password</span>
-            <input type="password" />
+            <select class="chooseDept">
+              <option value>Choose a department</option>
+              <option value>Laboratory</option>
+              <option value>Theatre</option>
+              <option value>ICU</option>
+              <option value>Pathology</option>
+              <option value>Radiology</option>
+              <option value>Biomedical Engineering</option>
+            </select>
           </label>
           <button type="button" class="submit">Sign Up</button>
           <button type="button" class="fb-btn">
@@ -315,22 +318,44 @@ input {
 }
 
 .forgot-pass {
-  margin-top: 15px;
+  margin-top: 35px;
   text-align: center;
-  font-size: 12px;
-  color: #cfcfcf;
+  font-size: 13px;
+  color: #ccc;
+  cursor: default;
 }
 
 .submit {
   margin-top: 40px;
   margin-bottom: 20px;
-  background: #d4af7a;
   text-transform: uppercase;
 }
 
+.submit {
+  border: 1px solid transparent;
+  height: 40px;
+  background-color: #3089f1;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.submit:hover {
+  border: 1px solid #3089f1;
+  background-color: #fff;
+  color: #3089f1;
+}
+
 .fb-btn {
-  border: 2px solid #d3dae9;
-  color: darken(#d3dae9, 20%);
+  border: 1px solid #3089f1;
+  color: #3089f1;
+  height: 40px;
+
+  &:hover {
+    border: 1px solid transparent;
+    height: 40px;
+    background-color: #3089f1;
+    color: #fff;
+  }
 
   span {
     font-weight: bold;
@@ -371,6 +396,37 @@ input {
   &--twitter {
     left: auto;
     right: 5px;
+  }
+}
+
+.login {
+  .headerText {
+    margin-bottom: 40px;
+  }
+
+  .advertText {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .formInputField {
+    border: 1px solid #ccc;
+    text-align: left;
+    border-radius: 1px;
+    padding: 7px 10px;
+  }
+
+  .chooseDept {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    outline: none;
+  }
+
+  .mpn {
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 </style>
