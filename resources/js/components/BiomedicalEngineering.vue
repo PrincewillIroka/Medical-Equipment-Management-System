@@ -58,7 +58,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "BiomedicalEngineering"
+};
 </script>
 
 <style lang="scss" scoped>

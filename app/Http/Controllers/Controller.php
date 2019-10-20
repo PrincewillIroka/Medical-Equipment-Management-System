@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Users;
 
 class Controller extends BaseController
 {
@@ -41,6 +42,10 @@ class Controller extends BaseController
     }
 
     public function sendRequest(Request $request){
-        
+        // $new_user = new User();
+        // $new_user->
+        // return array('message' => 'Send Request Successful');
+        $users = Users::all();
+        return $users;
     }
 }

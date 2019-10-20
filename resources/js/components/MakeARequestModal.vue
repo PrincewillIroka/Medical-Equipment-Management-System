@@ -7,6 +7,7 @@
           <a @click="closeModal" class="btn-close" aria-hidden="true">×</a>
         </div>
         <div class="modal-body">
+          <div class="errorField" v-if="errorModalIsVisible">Please fill the fields below</div>
           <textarea
             ref="request_or_complaint"
             placeholder="Type your request or complaint here"
@@ -26,6 +27,14 @@
 </template><script>
 export default {
   name: "MakeARequestModal",
+  data() {
+    return {
+      errorModalIsVisible: false,
+      token: document
+        .querySelector("meta[name='csrf-token']")
+        .getAttribute("content")
+    };
+  },
   methods: {
     closeModal() {
       this.$emit("closeModal");
@@ -33,10 +42,31 @@ export default {
     sendRequest() {
       const request_or_complaint = this.$refs.request_or_complaint.value;
       const no_of_equipments = this.$refs.no_of_equipments.value;
+      // if (!request_or_complaint || !no_of_equipments) {
+      //   this.errorModalIsVisible = true;
+      // } else {
+      fetch("sendRequest", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": this.token
+        },
+        method: "post",
+        body: JSON.stringify({
+          query_id: "mKrTyR2e456"
+        })
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err => {
+          console.error("Warning:", err);
+        });
+      // }
     }
   },
   mounted() {
-    console.log(this.activeTab);
+    // console.log(this.activeTab);
   },
   computed: {
     activeTab: function() {
@@ -97,6 +127,11 @@ export default {
 
   .modal-body {
     padding: 20px;
+
+    .errorField {
+      text-align: center;
+      color: red;
+    }
   }
 
   .modal-header,
