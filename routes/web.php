@@ -17,7 +17,9 @@
 
 Route::get('/index.html', 'Controller@index');
 
-Route::get('/', 'Controller@index');
+Route::get('/', 'Controller@index')->middleware('verify');
+
+Route::post('/userLogin', 'Controller@userLogin');
 
 Route::post('/db', 'Controller@getDB');
 

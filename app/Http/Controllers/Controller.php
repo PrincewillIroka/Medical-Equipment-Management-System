@@ -8,7 +8,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use App\Users;
+use App\User;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -25,7 +26,7 @@ class Controller extends BaseController
     public function getDB(Request $request){
         $validator = Validator::make($request->all(), [
             'query_id' => 'required'
-        ]); 
+        ]);
         
         if ($validator->fails()) {
             return view('home');
@@ -41,11 +42,19 @@ class Controller extends BaseController
         
     }
 
+    public function userLogin(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+        if(Auth::attempt(['email' => $email, 'password' => $password])) {
+            return response()->json(['result'=>'success']);
+        }else {
+            return response()->json(['result'=>'failed']);
+        }
+    }
+
     public function sendRequest(Request $request){
         // $new_user = new User();
         // $new_user->
         // return array('message' => 'Send Request Successful');
-        $users = Users::all();
-        return $users;
     }
 }

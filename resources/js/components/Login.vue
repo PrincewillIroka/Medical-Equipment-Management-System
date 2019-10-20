@@ -4,13 +4,13 @@
       <div class="form sign-in">
         <h2 class="headerText">Welcome back,</h2>
         <label>
-          <input type="email" placeholder="Email" class="formInputField" />
+          <input type="email" placeholder="Email" v-model="email" class="formInputField" />
         </label>
         <label>
-          <input type="password" placeholder="Password" class="formInputField" />
+          <input type="password" placeholder="Password" v-model="password" class="formInputField" />
         </label>
         <p class="forgot-pass">Forgot password?</p>
-        <button type="button" class="submit">Sign In</button>
+        <button type="button" class="submit" @click="loginProcess">Sign In</button>
         <button type="button" class="fb-btn">
           Connect with
           <span>facebook</span>
@@ -64,10 +64,52 @@
 <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      email: "g@g.com",
+      password: "asdasd28"
+    };
+  },
   mounted() {
     document.querySelector(".img__btn").addEventListener("click", function() {
       document.querySelector(".cont").classList.toggle("s--signup");
     });
+  },
+  methods: {
+    loginProcess() {
+      if (this.password && this.email) {
+        const password = this.password;
+        const email = this.email;
+        fetch("userLogin", {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": this.token
+          },
+          method: "post",
+          body: JSON.stringify({
+            query_id: "mKrTyR2e456",
+            email: email,
+            password: password
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.result === "success") {
+              window.location.assign("/");
+            }
+          })
+          .catch(err => {
+            console.error("Warning:", err);
+          });
+      }
+    }
+  },
+  computed: {
+    token: function() {
+      return this.$store.getters.getToken;
+    }
   }
 };
 </script>
@@ -297,7 +339,7 @@ h2 {
 label {
   display: block;
   width: $inputW;
-  margin: 25px auto 0;
+  margin: 30px auto 0;
   text-align: center;
 
   span {
@@ -412,7 +454,7 @@ input {
   .formInputField {
     border: 1px solid #ccc;
     text-align: left;
-    border-radius: 1px;
+    border-radius: 3px;
     padding: 7px 10px;
   }
 

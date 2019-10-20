@@ -29,10 +29,7 @@ export default {
   name: "MakeARequestModal",
   data() {
     return {
-      errorModalIsVisible: false,
-      token: document
-        .querySelector("meta[name='csrf-token']")
-        .getAttribute("content")
+      errorModalIsVisible: false
     };
   },
   methods: {
@@ -71,6 +68,9 @@ export default {
   computed: {
     activeTab: function() {
       return this.$store.getters.getActiveTab;
+    },
+    token: function() {
+      return this.$store.getters.getToken;
     }
   }
 };
