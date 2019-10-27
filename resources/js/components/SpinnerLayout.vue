@@ -1,12 +1,14 @@
 <template>
   <div class="spinner_layout">
-    <div class="loader"></div>
+    <div class="loader" :style="{height: spinnerHeight, width: spinnerWidth}"></div>
   </div>
 </template>
 
 
 <script>
-export default {};
+export default {
+  props: ["spinnerHeight", "spinnerWidth"]
+};
 </script>
 
 
@@ -30,8 +32,6 @@ export default {};
     border: 12px solid #f3f3f3; /* Light grey */
     border-top: 12px solid #3892e9; /* Blue */
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
     animation: spin 2s linear infinite;
   }
 

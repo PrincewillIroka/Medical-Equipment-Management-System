@@ -34,6 +34,9 @@ export default {
     computed: {
         activeTab: function() {
             return this.$store.getters.getActiveTab
+        },
+        user: function() {
+            return this.$store.getters.getUser
         }
     },
 
@@ -80,6 +83,18 @@ export default {
             this.allData = data
             this.inventoryData = this.allData[0].inventory
             this.hasLoadedInventory = true
+        },
+        logOut() {
+            fetch('userLogout', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json, text-plain, */*',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': this.token
+                },
+                method: 'get'
+            })
+            this.$router.push('login')
         }
     }
 }

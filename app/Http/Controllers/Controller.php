@@ -7,9 +7,12 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Departments;
+use App\EquipmentRepairRequest;
 
 class Controller extends BaseController
 {
@@ -45,16 +48,55 @@ class Controller extends BaseController
     public function userLogin(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
+        
         if(Auth::attempt(['email' => $email, 'password' => $password])) {
-            return response()->json(['result'=>'success']);
+            $user = Auth::user();
+            $department = Departments::where('id' , $user->department_id)->first();
+            $user->department = $department->name;
+            return response()->json(['result'=>'success','user' => $user]);
         }else {
             return response()->json(['result'=>'failed']);
         }
     }
 
-    public function sendRequest(Request $request){
-        // $new_user = new User();
-        // $new_user->
-        // return array('message' => 'Send Request Successful');
+    public function userLogout(Request $request){
+        Auth::logout();
     }
+
+    public function sendRequest(Request $request){
+        $equipment_repair_request = new EquipmentRepairRequest();
+        $equipment_repair_request->user_id = $request->input('user_id');
+        $equipment_repair_request->department = $request->input('department');
+        $equipment_repair_request->request = $request->input('request');
+        $equipment_repair_request->no_of_requests = $request->input('no_of_requests');
+        $equipment_repair_request->fixed = $request->input('fixed');
+        $equipment_repair_request->save();
+        return array('message' => 'Request Sent');
+    }
+
+    public function getRequests(Request $request){
+        $equipment_repair_requests = EquipmentRepairRequest::where(['department' => $request->input('department'), 'fixed' => false])->get();
+        return $equipment_repair_requests;
+    }
+
+    public function userRegistration(Request $request){
+        $user = new User();
+        $user->email = $request->input('email');
+        $user->name = $request->input('name');
+        $user->password = (new BcryptHasher)->make($request->input('password'));
+        $user->department_id = $request->input('department_id');
+        $user->save();
+        return response()->json(['result'=>'success']);        
+    }
+
+    public function getAllOngoingRequests(Request $request){
+        $equipment_repair_requests = EquipmentRepairRequest::where('fixed' , false)->get();
+        return $equipment_repair_requests;
+    }
+
+    public function fixRequest(Request $request){
+        EquipmentRepairRequest::where('id' , $request->input('id'))->update(['fixed' => true]);
+        return response()->json(['message'=>'success']);
+    }
+
 }

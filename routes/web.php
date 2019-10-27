@@ -21,9 +21,19 @@ Route::get('/', 'Controller@index')->middleware('verify');
 
 Route::post('/userLogin', 'Controller@userLogin');
 
+Route::get('/userLogout', 'Controller@userLogout');
+
+Route::post('/userRegistration', 'Controller@userRegistration');
+
 Route::post('/db', 'Controller@getDB');
 
 Route::post('/sendRequest', 'Controller@sendRequest');
+
+Route::post('/getRequests', 'Controller@getRequests');
+
+Route::get('/getAllOngoingRequests', 'Controller@getAllOngoingRequests');
+
+Route::post('/fixRequest', 'Controller@fixRequest');
 
 Route::any('{all}', function () {
     return view('home');})->where(['all' => '.*']);

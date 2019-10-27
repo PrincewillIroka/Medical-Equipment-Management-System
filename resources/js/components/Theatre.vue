@@ -39,7 +39,13 @@
       </div>
       <div>
         <div>Pending Complaints:</div>
-        <div>
+        <div v-if="isLoading">
+          <SpinnerLayout class="spinner_layout" :spinnerHeight="'50px'" :spinnerWidth="'50px'" />
+        </div>
+        <div v-else-if="equipmentRepairRequests.length===0" class="no_request_layout">
+          <h4>No Ongoing Request</h4>
+        </div>
+        <div v-else class="ongoing_requests_container">
           <div class="ongoing_requests_layout">
             <div>
               <div>Complaint</div>
@@ -47,41 +53,89 @@
             </div>
             <div>
               <div>
-                <div>Urgent need for replacement of damaged hand gloves.</div>
-                <div>30</div>
-                <div>Urgent need for replacement of damaged hand gloves.</div>
-                <div>17</div>
-                <div>Urgent need for replacement of damaged hand gloves.</div>
-                <div>4</div>
+                <template v-for="equipmentRepairRequest in equipmentRepairRequests">
+                  <div>{{equipmentRepairRequest.request}}</div>
+                  <div>{{equipmentRepairRequest.no_of_requests}}</div>
+                </template>
               </div>
             </div>
           </div>
-          <div class="no_request_layout">No Ongoing Request</div>
         </div>
       </div>
     </div>
     <MakeARequestModal
       v-if="toggleMakeARequestModal"
-      v-on:closeModal="toggleMakeARequestModalVisibility"
+      v-on:closeModal="refreshLayout(), toggleMakeARequestModalVisibility()"
     />
   </div>
 </template>
 
 <script>
 import MakeARequestModal from "./MakeARequestModal";
+import SpinnerLayout from "../components/SpinnerLayout";
+import { mapMutations } from "vuex";
+
 export default {
   name: "Theatre",
   components: {
-    MakeARequestModal
+    MakeARequestModal,
+    SpinnerLayout
   },
   data() {
     return {
-      toggleMakeARequestModal: false
+      toggleMakeARequestModal: false,
+      equipmentRepairRequests: [],
+      isLoading: true
     };
   },
+  created() {
+    this.getRequests();
+  },
+  computed: {
+    user: function() {
+      return this.$store.getters.getUser;
+    },
+    token: function() {
+      return this.$store.getters.getToken;
+    },
+    requestAdded() {
+      return this.$store.getters.getRequestAdded;
+    }
+  },
   methods: {
+    ...mapMutations(["setRequestAdded"]),
     toggleMakeARequestModalVisibility() {
       this.toggleMakeARequestModal = !this.toggleMakeARequestModal;
+    },
+    refreshLayout() {
+      if (this.requestAdded) {
+        this.isLoading = true;
+        this.getRequests();
+        this.setRequestAdded(false);
+      }
+    },
+    getRequests() {
+      const department = this.user.department;
+      fetch("getRequests", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": this.token
+        },
+        method: "post",
+        body: JSON.stringify({
+          department
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.isLoading = false;
+          this.equipmentRepairRequests = data;
+        })
+        .catch(err => {
+          console.error("Warning:", err);
+        });
     }
   }
 };
@@ -212,7 +266,7 @@ $general-color: #3089f1;
         @extend .header-background;
       }
 
-      > div:nth-child(2) {
+      > .ongoing_requests_container {
         .ongoing_requests_layout {
           padding: 15px 10px 0;
           font-size: 14px;
@@ -258,10 +312,17 @@ $general-color: #3089f1;
             }
           }
         }
+      }
 
-        .no_request_layout {
-          display: none;
-        }
+      .spinner_layout {
+        height: 120px;
+      }
+
+      .no_request_layout {
+        padding: 30px;
+        font-size: 15px;
+        text-align: center;
+        color: gray;
       }
     }
   }

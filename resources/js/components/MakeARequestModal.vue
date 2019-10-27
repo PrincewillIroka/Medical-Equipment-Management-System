@@ -7,59 +7,111 @@
           <a @click="closeModal" class="btn-close" aria-hidden="true">×</a>
         </div>
         <div class="modal-body">
+          <div class="successField" v-if="successModalIsVisible">Your request has been sent.</div>
           <div class="errorField" v-if="errorModalIsVisible">Please fill the fields below</div>
           <textarea
+            @input="hideMessageFields"
             ref="request_or_complaint"
             placeholder="Type your request or complaint here"
             id="modal-complaint-field"
           ></textarea>
           <div class="modal-number">
             <span>No. of Equipments needed:</span>
-            <input ref="no_of_equipments" type="number" id="modal-number-field" value="0" />
+            <input
+              @input="hideMessageFields"
+              ref="no_of_equipments"
+              type="number"
+              id="modal-number-field"
+              value="0"
+            />
           </div>
         </div>
+        <SpinnerLayout
+          :class="{ active: !isSending }"
+          class="spinner_layout"
+          :spinnerHeight="'45px'"
+          :spinnerWidth="'45px'"
+        />
         <div class="modal-footer">
-          <span @click="sendRequest" class="modal-send-request">Send Request</span>
+          <span
+            :class="{ disabledBtn: isDisabled }"
+            @click="sendRequest"
+            class="modal-send-request"
+          >Send Request</span>
         </div>
       </div>
     </div>
   </div>
 </template><script>
+import { mapMutations } from "vuex";
+import SpinnerLayout from "../components/SpinnerLayout";
 export default {
   name: "MakeARequestModal",
+  components: {
+    SpinnerLayout
+  },
   data() {
     return {
-      errorModalIsVisible: false
+      errorModalIsVisible: false,
+      successModalIsVisible: false,
+      isSending: false,
+      isDisabled: false
     };
   },
   methods: {
+    ...mapMutations(["setRequestAdded"]),
     closeModal() {
       this.$emit("closeModal");
     },
     sendRequest() {
-      const request_or_complaint = this.$refs.request_or_complaint.value;
-      const no_of_equipments = this.$refs.no_of_equipments.value;
-      // if (!request_or_complaint || !no_of_equipments) {
-      //   this.errorModalIsVisible = true;
-      // } else {
-      fetch("sendRequest", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json, text-plain, */*",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-TOKEN": this.token
-        },
-        method: "post",
-        body: JSON.stringify({
-          query_id: "mKrTyR2e456"
+      const User = JSON.parse(localStorage.getItem("User"));
+      const user_id = User.id;
+      const department = User.department;
+      const request = this.$refs.request_or_complaint.value;
+      const no_of_requests = this.$refs.no_of_equipments.value;
+      const fixed = false;
+
+      if (!request || !no_of_requests) {
+        this.errorModalIsVisible = true;
+      } else {
+        this.isDisabled = true;
+        this.isSending = true;
+        fetch("sendRequest", {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": this.token
+          },
+          method: "post",
+          body: JSON.stringify({
+            query_id: "mKrTyR2e456",
+            user_id,
+            department,
+            request,
+            no_of_requests,
+            fixed
+          })
         })
-      })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => {
-          console.error("Warning:", err);
-        });
-      // }
+          .then(response => response.json())
+          .then(data => {
+            if (data.message === "Request Sent") {
+              this.successModalIsVisible = true;
+              this.$refs.request_or_complaint.value = "";
+              this.$refs.no_of_equipments.value = "";
+              this.setRequestAdded(true);
+            }
+            this.isSending = false;
+            this.isDisabled = false;
+          })
+          .catch(err => {
+            console.error("Warning:", err);
+          });
+      }
+    },
+    hideMessageFields() {
+      this.errorModalIsVisible = false;
+      this.successModalIsVisible = false;
     }
   },
   mounted() {
@@ -71,12 +123,16 @@ export default {
     },
     token: function() {
       return this.$store.getters.getToken;
+    },
+    requestAdded() {
+      return this.$store.getters.getRequestAdded;
     }
   }
 };
 </script>
 <style lang="scss"scoped>
 .makeRequestModal {
+  user-select: none;
   .btn-close {
     color: #aaa;
     font-size: 30px;
@@ -118,7 +174,7 @@ export default {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    top: 20%;
+    top: 15%;
     -webkit-transition: -webkit-transform 0.3s ease-out;
     -moz-transition: -moz-transform 0.3s ease-out;
     -o-transition: -o-transform 0.3s ease-out;
@@ -128,8 +184,17 @@ export default {
   .modal-body {
     padding: 20px;
 
+    .successField {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: green;
+    }
+
     .errorField {
       text-align: center;
+      margin-bottom: 10px;
+      font-size: 11px;
       color: red;
     }
   }
@@ -145,8 +210,13 @@ export default {
   }
 
   .modal-footer {
-    margin: 60px 0 10px;
+    margin: 30px 0 10px;
     text-align: center;
+  }
+
+  .spinner_layout {
+    max-height: 30px;
+    margin-top: 40px;
   }
 
   textarea {
@@ -191,6 +261,14 @@ export default {
     // border: 1px solid #3089f1;
     // background-color: #fff;
     background-color: rgba(30, 131, 247, 0.7);
+  }
+
+  .active {
+    visibility: hidden;
+  }
+
+  .disabledBtn {
+    pointer-events: none;
   }
 }
 </style>

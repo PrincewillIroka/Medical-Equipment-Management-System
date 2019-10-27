@@ -3,7 +3,7 @@
     <div class="side-nav">
       <div class="logo-section">
         <i class="fas fa-plus-square"></i>
-        <span>Medical Equipment Systems</span>
+        <span>Medical Equipment System</span>
       </div>
       <div>
         <div
@@ -21,7 +21,7 @@
           <i v-else class="fas fa-angle-right"></i>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'laboratory' || user.department === 'admin')"
           @click="changeTab('Laboratory')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'Laboratory'}"
@@ -30,7 +30,7 @@
           <span>Laboratory</span>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'theatre' || user.department === 'admin')"
           @click="changeTab('Theatre')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'Theatre'}"
@@ -39,7 +39,7 @@
           <span>Theatre</span>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'icu' || user.department === 'admin')"
           @click="changeTab('ICU')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'ICU'}"
@@ -48,7 +48,7 @@
           <span>ICU</span>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'pathology' || user.department === 'admin')"
           @click="changeTab('Pathology')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'Pathology'}"
@@ -57,7 +57,7 @@
           <span>Pathology</span>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'radiology' || user.department === 'admin')"
           @click="changeTab('Radiology')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'Radiology'}"
@@ -66,7 +66,7 @@
           <span>Radiology</span>
         </div>
         <div
-          v-if="toggleDepartmentsStatus"
+          v-if="toggleDepartmentsStatus && (user.department === 'biomedical engineering' || user.department === 'admin')"
           @click="changeTab('BiomedicalEngineering')"
           class="nav_item"
           :class="{active_nav_item : activeTab == 'BiomedicalEngineering'}"
@@ -77,9 +77,14 @@
       </div>
     </div>
     <div class="main-layout">
-      <div></div>
+      <div>
+        <span>
+          <span>Welcome, {{user.name}}</span>
+          <i class="fas fa-power-off" @click="logOut"></i>
+        </span>
+      </div>
       <div v-if="!hasLoadedInventory" class="loader-layout">
-        <SpinnerLayout />
+        <SpinnerLayout :spinnerHeight="'80px'" :spinnerWidth="'80px'" />
       </div>
       <component :inventoryData="inventoryData" :is="activeTab"></component>
     </div>
@@ -119,8 +124,9 @@ export default {
       border-bottom: 1px solid #eee;
       padding-left: 15px;
       background-color: #3089f1;
+      width: 100%;
 
-      .fas {
+      .fa-plus-square {
         font-size: 40px;
         color: #fff;
         margin-right: 20px;
@@ -187,6 +193,24 @@ export default {
       height: 50px;
       width: 100%;
       background-color: #3089f1;
+      display: flex;
+      align-items: center;
+      > span:nth-child(1) {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        > span:nth-child(1) {
+          color: #fff;
+          font-size: 17px;
+          margin-right: 100px;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        > .fa-power-off {
+          color: red;
+          font-size: 20px;
+          margin-right: 30px;
+        }
+      }
     }
 
     > div:nth-child(2) {

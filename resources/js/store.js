@@ -8,7 +8,9 @@ export default new Vuex.Store({
         activeTab: 'Inventory',
         token: document
             .querySelector("meta[name='csrf-token']")
-            .getAttribute('content')
+            .getAttribute('content'),
+        user: JSON.parse(localStorage.getItem('User')),
+        requestAdded: false
     },
     getters: {
         getActiveTab(state) {
@@ -16,11 +18,23 @@ export default new Vuex.Store({
         },
         getToken(state) {
             return state.token
+        },
+        getUser(state) {
+            return state.user
+        },
+        getRequestAdded(state) {
+            return state.requestAdded
         }
     },
     mutations: {
         toogleActiveTab(state, payload) {
             state.activeTab = payload
+        },
+        setUserData(state, payload) {
+            state.user = payload
+        },
+        setRequestAdded(state, payload) {
+            state.requestAdded = payload
         }
     },
     actions: {}

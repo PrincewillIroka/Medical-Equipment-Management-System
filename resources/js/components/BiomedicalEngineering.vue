@@ -21,7 +21,11 @@
       <div>
         <div>Ongoing Requests</div>
         <div>
-          <div class="list_of_complaints">
+          <div class="spinner_layout" v-if="isLoading">
+            <SpinnerLayout :spinnerHeight="'50px'" :spinnerWidth="'50px'" />
+          </div>
+          <div v-else-if="equipmentRepairRequests.length===0" class="no_complaints">No Requests</div>
+          <div v-else class="list_of_complaints">
             <div>
               <div>S/N</div>
               <div>Department</div>
@@ -30,27 +34,19 @@
               <div></div>
             </div>
             <div>
-              <div>
-                <span>1</span>
-                <span>ICU</span>
-                <span>Faulty Centrifuge</span>
-                <span>1</span>
-                <span>
-                  <span>Fixed</span>
-                </span>
-              </div>
-              <div>
-                <span>2</span>
-                <span>Theatre</span>
-                <span>Lack of Hand Gloves</span>
-                <span>7</span>
-                <span>
-                  <span>Fixed</span>
-                </span>
-              </div>
+              <template v-for="(equipmentRepairRequest, index) in equipmentRepairRequests">
+                <div>
+                  <span>{{index+1}}</span>
+                  <span>{{equipmentRepairRequest.department}}</span>
+                  <span>{{equipmentRepairRequest.request}}</span>
+                  <span>{{equipmentRepairRequest.no_of_requests}}</span>
+                  <span>
+                    <span @click="fixRequest(equipmentRepairRequest.id, index)">Mark as Fixed</span>
+                  </span>
+                </div>
+              </template>
             </div>
           </div>
-          <div class="no_complaints">No Requests</div>
         </div>
       </div>
     </div>
@@ -58,8 +54,71 @@
 </template>
 
 <script>
+import SpinnerLayout from "../components/SpinnerLayout";
+import { mapMutations } from "vuex";
 export default {
-  name: "BiomedicalEngineering"
+  name: "BiomedicalEngineering",
+  components: {
+    SpinnerLayout
+  },
+  data() {
+    return {
+      equipmentRepairRequests: [],
+      isLoading: true
+    };
+  },
+  mounted() {
+    this.getRequests();
+  },
+  methods: {
+    getRequests() {
+      fetch("getAllOngoingRequests", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": this.token
+        },
+        method: "get"
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.isLoading = false;
+          this.equipmentRepairRequests = data;
+        })
+        .catch(err => {
+          console.error("Warning:", err);
+        });
+    },
+    fixRequest(id, index) {
+      fetch("fixRequest", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": this.token
+        },
+        method: "post",
+        body: JSON.stringify({
+          id
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message === "success") {
+            this.equipmentRepairRequests.splice(index, 1);
+          }
+        })
+        .catch(err => {
+          console.error("Warning:", err);
+        });
+    }
+  },
+  computed: {
+    token: function() {
+      return this.$store.getters.getToken;
+    }
+  }
 };
 </script>
 
@@ -161,6 +220,7 @@ $general-color: #3089f1;
 
       > div:nth-child(2) {
         padding: 15px 5px;
+
         .list_of_complaints {
           display: flex;
           flex-direction: column;
@@ -212,8 +272,19 @@ $general-color: #3089f1;
           }
         }
 
+        .spinner_layout {
+          display: flex;
+          justify-content: center;
+          height: 100px;
+        }
+
         .no_complaints {
-          display: none;
+          padding: 10px;
+          font-size: 15px;
+          display: flex;
+          justify-content: center;
+          color: gray;
+          font-weight: bold;
         }
       }
     }

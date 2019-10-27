@@ -3,18 +3,43 @@
     <div class="cont">
       <div class="form sign-in">
         <h2 class="headerText">Welcome back,</h2>
+        <div class="errorField" v-if="isError">Invalid login details</div>
+        <div class="errorField" v-if="isLoginMessage">Please fill all fields</div>
         <label>
-          <input type="email" placeholder="Email" v-model="email" class="formInputField" />
+          <input
+            @input="hideLoginMessage"
+            type="email"
+            placeholder="Email"
+            v-model="email"
+            class="formInputField"
+          />
         </label>
         <label>
-          <input type="password" placeholder="Password" v-model="password" class="formInputField" />
+          <input
+            type="password"
+            placeholder="Password"
+            @input="hideLoginMessage"
+            v-model="password"
+            class="formInputField"
+          />
         </label>
+        <SpinnerLayout
+          :class="{ active: !isLoading }"
+          class="spinner_layout"
+          :spinnerHeight="'45px'"
+          :spinnerWidth="'45px'"
+        />
         <p class="forgot-pass">Forgot password?</p>
-        <button type="button" class="submit" @click="loginProcess">Sign In</button>
-        <button type="button" class="fb-btn">
+        <button
+          type="button"
+          :class="{ disabledBtn: isDisabled }"
+          class="submit"
+          @click="loginProcess"
+        >Sign In</button>
+        <!-- <button type="button" class="fb-btn">
           Connect with
           <span>facebook</span>
-        </button>
+        </button>-->
       </div>
       <div class="sub-cont">
         <div class="img">
@@ -32,29 +57,63 @@
           </div>
         </div>
         <div class="form sign-up">
-          <h2 class="headerText">Time to feel like home,</h2>
+          <h2 class="headerText">Create a new account</h2>
+          <div class="registrationField" v-if="isRegistrationMessage">Account created successfully!</div>
+          <div class="errorField" v-if="isError2">Please fill all fields</div>
           <label>
-            <input type="email" class="formInputField" placeholder="Email" />
+            <input
+              @input="hideRegistrationMessages"
+              type="text"
+              v-model="registrationName"
+              class="formInputField"
+              placeholder="Name"
+            />
           </label>
           <label>
-            <input type="password" class="formInputField" placeholder="Password" />
+            <input
+              @input="hideRegistrationMessages"
+              type="email"
+              placeholder="Email"
+              v-model="registrationEmail"
+              class="formInputField"
+            />
           </label>
           <label>
-            <select class="chooseDept">
-              <option value>Choose a department</option>
-              <option value>Laboratory</option>
-              <option value>Theatre</option>
-              <option value>ICU</option>
-              <option value>Pathology</option>
-              <option value>Radiology</option>
-              <option value>Biomedical Engineering</option>
+            <input
+              @input="hideRegistrationMessages"
+              type="password"
+              v-model="registrationPassword"
+              class="formInputField"
+              placeholder="Password"
+            />
+          </label>
+          <label>
+            <select class="chooseDept" v-model="registrationDepartment">
+              <option value="Choose a department">Choose a department</option>
+              <option value="1">Laboratory</option>
+              <option value="2">Theatre</option>
+              <option value="3">ICU</option>
+              <option value="4">Pathology</option>
+              <option value="5">Radiology</option>
+              <option value="6">Biomedical Engineering</option>
             </select>
           </label>
-          <button type="button" class="submit">Sign Up</button>
-          <button type="button" class="fb-btn">
+          <SpinnerLayout
+            :class="{ active: !isLoading2 }"
+            class="spinner_layout"
+            :spinnerHeight="'45px'"
+            :spinnerWidth="'45px'"
+          />
+          <button
+            @click="registrationProcess"
+            :class="{ disabledBtn: isDisabled2 }"
+            type="button"
+            class="submit"
+          >Sign Up</button>
+          <!-- <button type="button" class="fb-btn">
             Join with
             <span>facebook</span>
-          </button>
+          </button>-->
         </div>
       </div>
     </div>
@@ -62,12 +121,29 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import SpinnerLayout from "../components/SpinnerLayout";
 export default {
   name: "Login",
+  components: {
+    SpinnerLayout
+  },
   data() {
     return {
       email: "g@g.com",
-      password: "asdasd28"
+      password: "asdasd28",
+      isLoading: false,
+      isError: false,
+      isError2: false,
+      isLoading2: false,
+      isRegistrationMessage: false,
+      isDisabled: false,
+      isDisabled2: false,
+      registrationName: "",
+      registrationEmail: "",
+      registrationPassword: "",
+      registrationDepartment: "Choose a department",
+      isLoginMessage: false
     };
   },
   mounted() {
@@ -76,10 +152,15 @@ export default {
     });
   },
   methods: {
+    ...mapMutations(["setUserData"]),
     loginProcess() {
       if (this.password && this.email) {
+        this.isLoginMessage = false;
+        this.isLoading = true;
         const password = this.password;
         const email = this.email;
+        this.isDisabled = true;
+        this.isError = false;
         fetch("userLogin", {
           headers: {
             "Content-Type": "application/json",
@@ -90,15 +171,80 @@ export default {
           method: "post",
           body: JSON.stringify({
             query_id: "mKrTyR2e456",
-            email: email,
-            password: password
+            email,
+            password
           })
         })
           .then(response => response.json())
           .then(data => {
             if (data.result === "success") {
+              localStorage.setItem("User", JSON.stringify(data.user));
               window.location.assign("/");
+            } else {
+              this.isError = true;
+              this.isLoading = false;
+              this.isDisabled = false;
             }
+          })
+          .catch(err => {
+            console.error("Warning:", err);
+          });
+      } else {
+        this.isLoginMessage = true;
+      }
+    },
+    populateUserData(user) {
+      this.setUserData(user);
+    },
+    hideRegistrationMessages() {
+      this.isRegistrationMessage = false;
+      this.isError2 = false;
+    },
+    hideLoginMessage() {
+      this.isLoginMessage = false;
+    },
+    registrationProcess() {
+      if (
+        !this.registrationName ||
+        !this.registrationEmail ||
+        !this.registrationPassword ||
+        this.registrationDepartment == "Choose a department"
+      ) {
+        this.isError2 = true;
+      } else {
+        this.isDisabled2 = true;
+        this.isLoading2 = true;
+        this.hideRegistrationMessages();
+        const password = this.registrationPassword;
+        const name = this.registrationName;
+        const email = this.registrationEmail;
+        const department_id = this.registrationDepartment;
+        fetch("userRegistration", {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": this.token
+          },
+          method: "post",
+          body: JSON.stringify({
+            email,
+            name,
+            password,
+            department_id
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.result === "success") {
+              this.isRegistrationMessage = true;
+              this.registrationName = "";
+              this.registrationEmail = "";
+              this.registrationPassword = "";
+              this.registrationDepartment = "Choose a department";
+            }
+            this.isLoading2 = false;
+            this.isDisabled2 = false;
           })
           .catch(err => {
             console.error("Warning:", err);
@@ -359,6 +505,15 @@ input {
   text-align: center;
 }
 
+.spinner_layout {
+  max-height: 30px;
+  margin: 70px 0 30px;
+}
+
+.active {
+  visibility: hidden;
+}
+
 .forgot-pass {
   margin-top: 35px;
   text-align: center;
@@ -442,8 +597,28 @@ input {
 }
 
 .login {
+  .errorField {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .registrationField {
+    color: green;
+    font-size: 15px;
+    text-align: center;
+  }
+
   .headerText {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+  }
+
+  .active {
+    visibility: hidden;
+  }
+
+  .disabledBtn {
+    pointer-events: none;
   }
 
   .advertText {
