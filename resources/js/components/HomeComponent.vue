@@ -80,7 +80,7 @@
       <div>
         <span>
           <span>Welcome, {{user.name}}</span>
-          <i class="fas fa-power-off" @click="logOut"></i>
+          <i title="Log Out" class="fas fa-power-off" @click="logOut"></i>
         </span>
       </div>
       <div v-if="!hasLoadedInventory" class="loader-layout">
@@ -206,9 +206,13 @@ export default {
           font-family: Arial, Helvetica, sans-serif;
         }
         > .fa-power-off {
-          color: red;
+          color: #fff;
           font-size: 20px;
           margin-right: 30px;
+
+          &:hover {
+            color: red;
+          }
         }
       }
     }

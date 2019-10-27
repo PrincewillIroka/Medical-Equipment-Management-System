@@ -37,7 +37,7 @@
               <template v-for="(equipmentRepairRequest, index) in equipmentRepairRequests">
                 <div>
                   <span>{{index+1}}</span>
-                  <span>{{equipmentRepairRequest.department}}</span>
+                  <span class="departmentName">{{equipmentRepairRequest.department}}</span>
                   <span>{{equipmentRepairRequest.request}}</span>
                   <span>{{equipmentRepairRequest.no_of_requests}}</span>
                   <span>
@@ -227,7 +227,7 @@ $general-color: #3089f1;
           text-align: center;
           > div:nth-child(1) {
             display: grid;
-            grid-template-columns: 5% 20% 50% 10% 15%;
+            grid-template-columns: 5% 15% 50% 10% 20%;
             font-weight: bold;
             opacity: 0.7;
 
@@ -242,7 +242,7 @@ $general-color: #3089f1;
             margin-top: 10px;
             > div {
               display: grid;
-              grid-template-columns: 5% 20% 50% 10% 15%;
+              grid-template-columns: 5% 15% 50% 10% 20%;
               margin-bottom: 20px;
 
               > span {
@@ -288,70 +288,9 @@ $general-color: #3089f1;
         }
       }
     }
-
-    // > div:nth-child(3) {
-    //   @extend .special-background;
-    //   margin-top: 30px;
-    //   margin-bottom: 20px;
-
-    //   > div:nth-child(1) {
-    //     @extend .header-background;
-    //   }
-
-    //   > div:nth-child(2) {
-    //     .ongoing_requests_layout {
-    //       padding: 15px 10px 0;
-    //       font-size: 14px;
-
-    //       > div:nth-child(1) {
-    //         display: grid;
-    //         grid-template-columns: 70% 30%;
-    //         font-weight: bold;
-    //         opacity: 0.9;
-
-    //         > div {
-    //           padding: 10px;
-    //           border: 1px solid rgb(230, 230, 230);
-    //         }
-
-    //         > div:nth-child(odd) {
-    //           border-right: 1px solid transparent;
-    //         }
-
-    //         > div:nth-child(even) {
-    //           text-align: center;
-    //         }
-    //       }
-
-    //       > div:nth-child(2) {
-    //         padding-bottom: 15px;
-
-    //         > div:nth-child(1) {
-    //           display: grid;
-    //           grid-template-columns: 70% 30%;
-
-    //           > div {
-    //             padding: 10px;
-    //             border: 1px solid rgb(230, 230, 230);
-    //             border-top: none;
-    //           }
-
-    //           > div:nth-child(odd) {
-    //             border-right: 1px solid transparent;
-    //           }
-
-    //           > div:nth-child(even) {
-    //             text-align: center;
-    //           }
-    //         }
-    //       }
-    //     }
-
-    //     .no_request_layout {
-    //       display: none;
-    //     }
-    //   }
-    // }
+  }
+  .departmentName {
+    text-transform: capitalize;
   }
 }
 </style>

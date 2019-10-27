@@ -35,5 +35,7 @@ Route::get('/getAllOngoingRequests', 'Controller@getAllOngoingRequests');
 
 Route::post('/fixRequest', 'Controller@fixRequest');
 
+Route::post('/appLogin', 'Controller@appLogin');
+
 Route::any('{all}', function () {
     return view('home');})->where(['all' => '.*']);

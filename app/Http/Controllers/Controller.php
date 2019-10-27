@@ -99,4 +99,25 @@ class Controller extends BaseController
         return response()->json(['message'=>'success']);
     }
 
+    public function appLogin(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+        
+        if(Auth::attempt(['email' => $email, 'password' => $password])) {
+            $user = Auth::user();
+            $department = Departments::where('id' , $user->department_id)->first();
+            $equipment_repair_requests = [];
+            if($department->name == 'biomedical engineering'){
+                $equipment_repair_requests = EquipmentRepairRequest::where('fixed' , false)->get();
+                return response()->json(['result'=>'success','user' => $user, 'equipment_repair_requests' => $equipment_repair_requests]);
+            }else{
+                return response()->json(['result'=>'no access']);
+            }
+            
+        }else {
+            return response()->json(['result'=>'failed']);
+        }
+    }
+
+
 }
