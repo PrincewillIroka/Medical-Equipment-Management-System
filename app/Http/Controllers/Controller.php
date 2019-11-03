@@ -10,9 +10,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
 use App\User;
+use App\AppTokens;
 use Auth;
 use App\Departments;
 use App\EquipmentRepairRequest;
+use LaravelFCM\Message\OptionsBuilder;
+use LaravelFCM\Message\PayloadDataBuilder;
+use LaravelFCM\Message\PayloadNotificationBuilder;
+use FCM;
 
 class Controller extends BaseController
 {
@@ -64,6 +69,7 @@ class Controller extends BaseController
     }
 
     public function sendRequest(Request $request){
+        //Save new request in db
         $equipment_repair_request = new EquipmentRepairRequest();
         $equipment_repair_request->user_id = $request->input('user_id');
         $equipment_repair_request->department = $request->input('department');
@@ -71,6 +77,28 @@ class Controller extends BaseController
         $equipment_repair_request->no_of_requests = $request->input('no_of_requests');
         $equipment_repair_request->fixed = $request->input('fixed');
         $equipment_repair_request->save();
+
+        //Get users that are logged into bio eng dept. and send them push notification
+        // $app_tokens = AppTokens::all();
+        // if($app_tokens){
+        //     foreach($app_tokens as $app_token){
+        //         $aptn = $app_token->token;
+        //         $optionBuilder = new OptionsBuilder();
+        //         $optionBuilder->setTimeToLive(60*20);
+
+        //         $notificationBuilder = new PayloadNotificationBuilder();
+        //         $dataBuilder = new PayloadDataBuilder();
+        //         $my_data = array('title' => 'New Request', 'message' => 'You have a new Request');
+        //         $dataBuilder->addData($my_data);
+
+        //         $option = $optionBuilder->build();
+        //         $notification = $notificationBuilder->build();
+        //         $data = $dataBuilder->build();
+
+        //         $downstreamResponse = FCM::sendTo($aptn, $option, $notification, $data);
+        //     } 
+        // }
+
         return array('message' => 'Request Sent');
     }
 
@@ -100,8 +128,8 @@ class Controller extends BaseController
     }
 
     public function appLogin(Request $request){
-        // error_log('Some message here.');
-        // error_log($request);
+        error_log('Some message here.');
+        error_log($request);
         $email = $request->input('email');
         $password = $request->input('password');
         
@@ -110,6 +138,15 @@ class Controller extends BaseController
             $department = Departments::where('id' , $user->department_id)->first();
             $equipment_repair_requests = [];
             if($department->name == 'biomedical engineering'){
+                $atn = AppTokens::where('user_id', $user->id)->first();
+                if($atn){
+                    AppTokens::where('user_id' , $user->id)->update(['token' => $request->input('token')]);
+                }else{
+                    $app_token = new AppTokens();
+                    $app_token->user_id = $user->id;
+                    $app_token->token = $request->input('token');
+                    $app_token->save();                    
+                }
                 $equipment_repair_requests = EquipmentRepairRequest::where('fixed' , false)->get();
                 return response()->json(['result'=>'success','user' => $user, 'equipment_repair_requests' => $equipment_repair_requests]);
             }else{
