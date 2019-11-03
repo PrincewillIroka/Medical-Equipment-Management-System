@@ -140,7 +140,7 @@ export default {
     position: absolute;
     right: 15px;
     top: 10px;
-    cursor: default;
+    cursor: pointer;
   }
 
   .btn-close:hover {
@@ -187,7 +187,7 @@ export default {
     .successField {
       text-align: center;
       margin-bottom: 10px;
-      font-size: 11px;
+      font-size: 13px;
       color: green;
     }
 

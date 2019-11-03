@@ -100,6 +100,8 @@ class Controller extends BaseController
     }
 
     public function appLogin(Request $request){
+        // error_log('Some message here.');
+        // error_log($request);
         $email = $request->input('email');
         $password = $request->input('password');
         

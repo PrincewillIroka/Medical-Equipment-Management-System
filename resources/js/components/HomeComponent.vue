@@ -209,6 +209,7 @@ export default {
           color: #fff;
           font-size: 20px;
           margin-right: 30px;
+          cursor: pointer;
 
           &:hover {
             color: red;
