@@ -128,8 +128,8 @@ class Controller extends BaseController
     }
 
     public function appLogin(Request $request){
-        error_log('Some message here.');
-        error_log($request);
+        // error_log('Some message here.');
+        // error_log($request);
         $email = $request->input('email');
         $password = $request->input('password');
         
@@ -138,7 +138,7 @@ class Controller extends BaseController
             $department = Departments::where('id' , $user->department_id)->first();
             $equipment_repair_requests = [];
             if($department->name == 'biomedical engineering'){
-                $atn = AppTokens::where('user_id', $user->id)->first();
+                $atn = AppTokens::where('user_id', $user->id)->get();
                 if($atn){
                     AppTokens::where('user_id' , $user->id)->update(['token' => $request->input('token')]);
                 }else{
