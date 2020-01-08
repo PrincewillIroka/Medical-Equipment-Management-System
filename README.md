@@ -1,6 +1,6 @@
 ## Medical Equipment Management System. 
 ### Live
-medical-equipment--system.herokuapp.com/ \
+https://medical-equipment--system.herokuapp.com/ \
 ![Princewill Iroka Portfolio](https://i.imgur.com/rMtLNzL.png)
 ### Author
 Developed by [Princewill Iroka](https://princewilliroka.com/).
