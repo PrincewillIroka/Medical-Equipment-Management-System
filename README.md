@@ -1,4 +1,5 @@
 ## Medical Equipment Management System. 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ### Live
 https://medical-equipment--system.herokuapp.com/ \
 ![Princewill Iroka Portfolio](https://i.imgur.com/rMtLNzL.png)
